@@ -1,0 +1,225 @@
+/* Graphiques des pages d'exemples de Mia Insights. Chargée après insights.css.
+   Les couleurs de série viennent d'une palette validée pour le daltonisme
+   (ordre fixe, jamais recyclé) : bleu, orange, vert d'eau, jaune. Le teal de la
+   marque Mia ne sert qu'aux échelles de magnitude (une teinte, du clair au foncé).
+   Les textes ne portent jamais la couleur d'une série : ils restent en encre. */
+
+:root{
+  --vz-surface:#ffffff;
+  --vz-ink:#16212e; --vz-ink2:#52514e; --vz-muted:#898781;
+  --vz-grid:#e6e9ee; --vz-axis:#c9cfd6;
+  --vz-s1:#2a78d6; --vz-s2:#eb6834; --vz-s3:#1baf7a; --vz-s4:#eda100;
+  --vz-gray:#c9d1d9;                 /* série de contexte, mise en retrait */
+  --vz-pos:#2a78d6; --vz-neg:#e34948; --vz-mid:#eeedea;   /* divergent */
+  --vz-good:#0ca30c; --vz-warn:#fab219; --vz-serious:#ec835a; --vz-critical:#d03b3b;
+  --vz-seq-0:#e3f1f2; --vz-seq-1:#b6dadd; --vz-seq-2:#7fbdc3; --vz-seq-3:#3f9aa2;
+  --vz-seq-4:#0E7C86; --vz-seq-5:#0a5c64; --vz-seq-6:#07434a;
+}
+
+/* ---------- Bandeau « données fictives » ---------- */
+.vz-fictif{
+  display:flex; align-items:center; gap:.7rem; flex-wrap:wrap;
+  border:1px solid #f0e0c0; background:var(--mi-wait-soft); color:#6b4a0d;
+  border-radius:12px; padding:.7rem 1rem; margin:1.2rem 0 0; font-size:.93rem; line-height:1.5;
+}
+.vz-fictif b{ color:#5a3d08; }
+.vz-fictif .tag{
+  flex:0 0 auto; font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  background:#fff; border:1px solid #f0e0c0; border-radius:100px; padding:.22rem .6rem; color:#8a5a12;
+}
+
+/* ---------- Le bloc d'exemple ---------- */
+.vz-ex{ margin:1.4rem 0 0; }
+.vz-ex .who{ display:block; font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--mi-muted); margin:0 0 .35rem; }
+.vz-ex .ask{
+  display:inline-block; background:var(--mi-accent-soft); color:var(--mi-navy);
+  border-radius:14px 14px 14px 4px; padding:.65rem .9rem; font-size:.98rem; line-height:1.5;
+  font-weight:600;
+}
+.vz-ex .who + .who{ margin-top:.9rem; }
+.vz-ex .rep{ margin-top:.9rem; }
+.vz-palier{
+  display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  border-radius:100px; padding:.22rem .65rem; margin-right:.5rem; vertical-align:middle;
+  background:#eef1f5; color:#4b5b6c; border:1px solid #dfe5ec;
+}
+.vz-palier.p2{ background:#e6f3f4; color:#0a5c64; border-color:#cfe6e8; }
+.vz-palier.p3{ background:#e8eef9; color:#1c4c8f; border-color:#d3dff2; }
+.vz-palier.p4{ background:#f3ecfa; color:#5b3a8a; border-color:#e5d8f2; }
+
+/* Ce que l'agent a fait, ce qu'il faut pour que ce soit vrai */
+.vz-how{ display:grid; grid-template-columns:1fr 1fr; gap:.9rem; margin:.9rem 0 0; }
+.vz-how > div{ background:#fbfcfd; border:1px solid var(--mi-line); border-radius:12px; padding:.8rem 1rem; }
+.vz-how .k{ display:block; font-size:.66rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--mi-accent); margin-bottom:.35rem; }
+.vz-how ol{ margin:0; padding-left:1.1rem; }
+.vz-how li{ font-size:.9rem; color:var(--mi-ink); line-height:1.5; margin:.25rem 0; }
+.vz-how p{ margin:0; font-size:.9rem; color:var(--mi-ink); line-height:1.5; max-width:none; }
+.vz-how code{ font-family:Consolas,"Courier New",monospace; font-size:.84em; background:#eef1f5; border-radius:5px; padding:.05rem .35rem; color:#33465a; }
+
+/* ---------- Cadre du graphique ---------- */
+.vz{ background:var(--vz-surface); border:1px solid var(--mi-line); border-radius:14px; padding:.9rem 1rem .6rem; box-shadow:var(--mi-shadow); position:relative; }
+.vz .vz-title{ font-size:.86rem; font-weight:800; color:var(--mi-navy); margin:0 0 .15rem; }
+.vz .vz-sub{ font-size:.8rem; color:var(--vz-ink2); margin:0 0 .5rem; line-height:1.4; }
+.vz-plot{ overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; margin:0 -.2rem; padding:0 .2rem; }
+.vz svg{ display:block; width:100%; min-width:700px; height:auto; font-family:'Segoe UI',Arial,Helvetica,sans-serif; }
+.vz-ctl-slot:empty, .vz-kpi-slot:empty, .vz-legend:empty{ display:none; }
+.vz text{ fill:var(--vz-ink2); font-size:10px; }
+.vz .axis text{ fill:var(--vz-muted); font-size:9.6px; }
+.vz .axis line, .vz .grid line{ stroke:var(--vz-grid); stroke-width:1; shape-rendering:crispEdges; }
+.vz .axis .base{ stroke:var(--vz-axis); }
+.vz .lbl{ fill:var(--vz-ink); font-size:9.8px; font-weight:700; }
+.vz .lbl.muted{ fill:var(--vz-muted); font-weight:600; }
+.vz .cat{ fill:var(--vz-ink); font-size:10px; }
+.vz .ref line{ stroke:var(--vz-ink2); stroke-width:1.5; }
+.vz .ref text{ fill:var(--vz-ink2); font-size:9.4px; font-weight:700; }
+.vz .hit{ fill:transparent; cursor:crosshair; }
+.vz .mark{ transition:opacity .08s ease; }
+.vz .mark.on{ opacity:.82; }
+.vz .mark.dim{ opacity:.55; }
+.vz .xline{ stroke:var(--vz-axis); stroke-width:1; }
+.vz .caption{ font-size:.8rem; color:#8b97a6; font-style:italic; line-height:1.5; margin:.5rem 0 0; }
+
+/* Légende : rectangle pour les barres et aires, trait pour les courbes */
+.vz-legend{ display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin:.1rem 0 .55rem; font-size:.82rem; color:var(--vz-ink2); }
+.vz-legend span{ display:inline-flex; align-items:center; gap:.45rem; }
+.vz-legend i{ display:inline-block; width:12px; height:12px; border-radius:3px; }
+.vz-legend i.line{ height:2.5px; width:16px; border-radius:2px; }
+.vz-legend i.dot{ border-radius:50%; width:10px; height:10px; }
+
+/* Barre d'échelle des cartes de chaleur */
+.vz-scale{ display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:var(--vz-muted); margin:.4rem 0 0; }
+.vz-scale .bar{ flex:0 0 140px; height:10px; border-radius:5px; background:linear-gradient(90deg,var(--vz-seq-0),var(--vz-seq-2),var(--vz-seq-4),var(--vz-seq-6)); }
+
+/* ---------- Infobulle unique ---------- */
+.vz-tip{
+  position:absolute; z-index:500; pointer-events:none; display:none;
+  background:#fff; color:var(--vz-ink); border:1px solid #d9dee5; border-radius:10px;
+  box-shadow:0 8px 24px rgba(16,33,52,.14); padding:.55rem .75rem; font-size:.84rem; line-height:1.4;
+  min-width:150px; max-width:280px;
+}
+.vz-tip .h{ font-weight:800; color:var(--mi-navy); margin-bottom:.3rem; font-size:.82rem; }
+.vz-tip .r{ display:flex; align-items:center; gap:.5rem; margin:.12rem 0; }
+.vz-tip .r i{ display:inline-block; width:14px; height:3px; border-radius:2px; flex:0 0 auto; }
+.vz-tip .r b{ font-weight:800; margin-left:auto; padding-left:.8rem; font-variant-numeric:tabular-nums; }
+.vz-tip .r span{ color:var(--vz-ink2); }
+
+/* ---------- Commandes : curseur, interrupteur ---------- */
+.vz-ctl{ display:flex; flex-wrap:wrap; align-items:center; gap:.7rem 1.2rem; margin:0 0 .8rem; padding:.7rem .9rem; background:#f6f8fa; border:1px solid var(--mi-line); border-radius:12px; }
+.vz-ctl label{ font-size:.88rem; font-weight:700; color:var(--mi-navy); display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.vz-ctl input[type=range]{ width:220px; accent-color:var(--mi-accent); }
+.vz-ctl output{ font-variant-numeric:tabular-nums; font-weight:800; color:var(--mi-accent); min-width:3.5ch; }
+.vz-ctl .seg{ display:inline-flex; border:1px solid var(--mi-line); border-radius:100px; overflow:hidden; background:#fff; }
+.vz-ctl .seg button{ border:none; background:transparent; padding:.35rem .8rem; font:inherit; font-size:.85rem; font-weight:700; color:var(--mi-muted); cursor:pointer; }
+.vz-ctl .seg button.on{ background:var(--mi-navy); color:#fff; }
+.vz-ctl .hint{ font-size:.82rem; color:var(--vz-ink2); }
+
+/* ---------- Tuiles de chiffres ---------- */
+.vz-kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.7rem; margin:0 0 .8rem; }
+.vz-kpi{ background:#fbfcfd; border:1px solid var(--mi-line); border-radius:12px; padding:.7rem .9rem; }
+.vz-kpi .l{ font-size:.76rem; color:var(--vz-ink2); line-height:1.3; }
+.vz-kpi .v{ font-size:1.5rem; font-weight:700; color:var(--mi-navy); line-height:1.15; margin-top:.15rem; }
+.vz-kpi .d{ font-size:.78rem; margin-top:.15rem; font-weight:700; color:var(--vz-ink2); }
+.vz-kpi .d.up{ color:#006300; } .vz-kpi .d.down{ color:#a12d2d; }
+
+/* ---------- Le tableau des données ---------- */
+.vz-data{ margin:.6rem 0 0; }
+.vz-data summary{ cursor:pointer; font-size:.84rem; font-weight:700; color:var(--mi-info); list-style:none; }
+.vz-data summary::-webkit-details-marker{ display:none; }
+.vz-data summary::before{ content:"▸ "; }
+.vz-data[open] summary::before{ content:"▾ "; }
+.vz-data .wrap{ overflow-x:auto; margin-top:.5rem; }
+.vz-data table{ border-collapse:collapse; font-size:.82rem; min-width:100%; }
+.vz-data th, .vz-data td{ padding:.35rem .6rem; border-bottom:1px solid #eef1f6; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.vz-data th:first-child, .vz-data td:first-child{ text-align:left; }
+.vz-data th{ color:var(--vz-muted); font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+
+/* ---------- Triangle de provisionnement ---------- */
+.vz-tri{ overflow-x:auto; }
+.vz-tri table{ border-collapse:separate; border-spacing:2px; font-size:.82rem; font-variant-numeric:tabular-nums; }
+.vz-tri th{ color:var(--vz-muted); font-size:.72rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:.3rem .5rem; text-align:right; white-space:nowrap; }
+.vz-tri th:first-child{ text-align:left; }
+.vz-tri td{ padding:.38rem .55rem; text-align:right; border-radius:5px; background:#f3f6f8; color:var(--vz-ink); white-space:nowrap; cursor:default; }
+.vz-tri td:first-child{ background:transparent; color:var(--vz-ink2); font-weight:700; text-align:left; }
+.vz-tri td.proj{ background:#fff; border:1px dashed #b9c9cf; color:var(--vz-ink2); }
+.vz-tri td.ibnr{ background:var(--mi-accent-soft); color:var(--mi-navy); font-weight:800; }
+.vz-tri td.fac{ background:transparent; color:var(--mi-accent); font-weight:800; }
+.vz-tri td:hover{ outline:2px solid var(--mi-accent); outline-offset:-2px; }
+
+/* ---------- Matrice du hub ---------- */
+.vz-matrix{ overflow-x:auto; margin:1.1rem 0; border:1px solid var(--mi-line); border-radius:16px; background:#fff; box-shadow:var(--mi-shadow); }
+.vz-matrix table{ width:100%; border-collapse:collapse; min-width:720px; font-size:.86rem; }
+.vz-matrix th{ text-align:left; padding:.8rem .9rem; color:var(--vz-muted); font-size:.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-bottom:1px solid var(--mi-line); }
+.vz-matrix td{ padding:.55rem .9rem; border-bottom:1px solid #eef1f6; vertical-align:top; }
+.vz-matrix tr:last-child td{ border-bottom:none; }
+.vz-matrix td:first-child{ font-weight:800; color:var(--mi-navy); white-space:nowrap; }
+.vz-matrix td:first-child small{ display:block; font-weight:600; color:var(--vz-ink2); font-size:.78rem; }
+.vz-matrix a{ display:block; text-decoration:none; color:var(--mi-ink); border-radius:8px; padding:.35rem .5rem; margin:-.35rem -.5rem; line-height:1.4; }
+.vz-matrix a:hover{ background:var(--mi-accent-soft); color:var(--mi-navy); }
+.vz-matrix td.na{ color:#a7b1bc; font-style:italic; }
+
+/* ---------- Paliers du hub ---------- */
+.vz-paliers{ display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; margin:1.1rem 0; }
+.vz-pal{ background:#fff; border:1px solid var(--mi-line); border-radius:14px; padding:.9rem 1rem; box-shadow:var(--mi-shadow); border-top:4px solid #dfe5ec; }
+.vz-pal.p2{ border-top-color:#7fbdc3; } .vz-pal.p3{ border-top-color:#2a78d6; } .vz-pal.p4{ border-top-color:#8b6bb5; }
+.vz-pal h4{ margin:0 0 .3rem; font-size:1rem; color:var(--mi-navy); }
+.vz-pal p{ margin:0; font-size:.88rem; color:var(--mi-muted); line-height:1.45; }
+.vz-pal .qui{ margin-top:.55rem; font-size:.78rem; font-weight:700; color:var(--vz-ink2); }
+.vz-pal .qui b{ color:var(--mi-navy); }
+
+/* ---------- Seconde ligne d'onglets, les directions ---------- */
+.vz-dirs{ background:#fff; border-bottom:1px solid var(--mi-line); }
+.vz-dirs .in{ padding:.45rem 1.5rem; display:flex; gap:.3rem; overflow-x:auto; scrollbar-width:none; }
+.vz-dirs .in::-webkit-scrollbar{ display:none; }
+.vz-dirs a{ flex:0 0 auto; text-decoration:none; white-space:nowrap; font-size:.84rem; font-weight:650; color:var(--mi-muted); padding:.35rem .75rem; border-radius:100px; border:1px solid transparent; }
+.vz-dirs a:hover{ background:var(--mi-bg); color:var(--mi-navy); }
+.vz-dirs a.cur{ background:var(--mi-accent-soft); color:var(--mi-navy); border-color:#cfe6e8; }
+
+@media (max-width:960px){ .vz-paliers{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:680px){
+  .vz-how{ grid-template-columns:1fr; }
+  .vz-paliers{ grid-template-columns:1fr; }
+  .vz-ctl input[type=range]{ width:160px; }
+  .vz-dirs .in{ padding:.4rem 1.1rem; }
+}
+@media print{ .vz-tip, .vz-ctl{ display:none; } .vz{ break-inside:avoid; box-shadow:none; } }
+
+/* ---------- Tableau de bord ---------- */
+.db-filters{
+  display:flex; flex-wrap:wrap; align-items:flex-end; gap:.7rem 1rem;
+  background:#fff; border:1px solid var(--mi-line); border-radius:14px;
+  padding:.8rem 1rem; margin:1.2rem 0 1.1rem; box-shadow:var(--mi-shadow);
+}
+.db-filters .f{ display:flex; flex-direction:column; gap:.25rem; }
+.db-filters .f span{ font-size:.68rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--mi-muted); }
+.db-filters select{
+  font:inherit; font-size:.9rem; font-weight:650; color:var(--mi-navy);
+  border:1px solid var(--mi-line); border-radius:9px; padding:.4rem .6rem; background:#fff; min-width:150px;
+}
+.db-filters .etat{ margin-left:auto; font-size:.82rem; color:var(--vz-ink2); align-self:center; }
+.db-filters .etat b{ color:var(--mi-navy); }
+
+.db-hero{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.6rem 1.2rem;
+  background:var(--mi-navy); color:#fff; border-radius:16px; padding:1.1rem 1.3rem; margin:0 0 1rem;
+}
+.db-hero .l{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#a9c2da; width:100%; }
+.db-hero .v{ font-size:3rem; font-weight:700; line-height:1; letter-spacing:-.02em; }
+.db-hero .d{ font-size:.95rem; font-weight:700; color:#bcd6ea; }
+.db-hero .n{ font-size:.88rem; color:#a9c2da; margin-left:auto; flex:1 1 22rem; line-height:1.45; }
+
+.db-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+/* Sans cette ligne, une carte qui contient un SVG a une largeur minimale imposee
+   par ce SVG, et la grille deborde la page au lieu de laisser la carte defiler. */
+.db-grid > *{ min-width:0; }
+/* Les cartes en demi-colonne dessinent sur une viewBox plus etroite (spec.width),
+   elles n'ont donc pas besoin de la largeur minimale des pages d'exemples. */
+.db-grid .vz:not(.wide) svg{ min-width:460px; }
+.db-grid .wide{ grid-column:1 / -1; }
+.db-charge{ transition:opacity .12s ease; }
+.db-charge.load{ opacity:.45; }
+
+@media (max-width:860px){
+  .db-grid{ grid-template-columns:1fr; }
+  .db-hero .v{ font-size:2.2rem; }
+  .db-hero .n{ margin-left:0; }
+}

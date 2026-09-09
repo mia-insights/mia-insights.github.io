@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mia Insights · demander une analyse plutôt que la développer</title>
+<meta name="description" content="Ce que devient l'analyse de données en assurance quand une page entière se demande en français au lieu de se développer. Démonstration interactive, données fictives.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/viz.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="hero">
+  <div class="in">
+    <span class="kick">Analyse de données · assurance</span>
+    <h1>Une analyse se demande, elle ne se développe pas</h1>
+    <p class="sub">Un agent qui écrit du code et l'exécute change la nature du travail d'analyse. Il ne s'agit plus de commander un tableau de bord et d'attendre, ni d'exporter vers un tableur pour bricoler une fois. On écrit ce qu'on veut voir, et la page apparaît, avec son calcul et son code.</p>
+    <div class="btns">
+      <a class="p" href="demo/index.html">Ouvrir la démonstration →</a>
+      <a class="s" href="le-principe.html">Commencer par le principe</a>
+    </div>
+    <div class="meta">
+      <span>Quatre modules</span>
+      <span>Une application de démonstration</span>
+      <span>Toutes les données sont fictives</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="fictif">
+    <span class="tag">À lire d'abord</span>
+    <span><b>Aucun chiffre de ce site ne décrit un assureur réel.</b> Les jeux de données sont inventés, produits par un générateur à graine fixe pour que les pages montrent toujours la même chose. Ce site parle d'une façon de travailler, pas de résultats.</span>
+  </div>
+
+  <section class="sec">
+    <h2>Le point de bascule</h2>
+    <p class="lead">Un tableau de bord répond aux questions que quelqu'un a prévues en le construisant. Un tableur permet d'aller plus loin, à la main, une fois, et le travail meurt avec le fichier. La différence n'est pas la vitesse d'affichage, c'est le nombre de questions auxquelles on peut répondre sans redemander à quelqu'un.</p>
+    <p>Un agent qui écrit du code n'a pas de plafond de complexité. Ajuster un modèle de tarification, dérouler un triangle de provisionnement, simuler l'effet d'un seuil sont pour lui du même ordre que compter des lignes. Ce qui limite n'est plus l'outil, c'est la qualité de la question posée et le droit d'accéder aux données.</p>
+
+    <div class="paliers">
+      <div class="pal">
+        <h4>1. Décrire</h4>
+        <p>Combien, quand, où. Un comptage, une moyenne, un classement sur une période.</p>
+        <div class="qui">Couvert par <b>un tableau de bord</b></div>
+      </div>
+      <div class="pal p2">
+        <h4>2. Croiser</h4>
+        <p>Le même chiffre par deux ou trois axes qui n'avaient pas été prévus ensemble, avec les exclusions qui vont avec.</p>
+        <div class="qui">Aujourd'hui : <b>export vers un tableur</b></div>
+      </div>
+      <div class="pal p3">
+        <h4>3. Modéliser</h4>
+        <p>Ajuster un modèle sur l'historique et lire ce qu'il en sort : une prime technique, un facteur de développement, une courbe de survie.</p>
+        <div class="qui">Aujourd'hui : <b>un ticket, et des semaines</b></div>
+      </div>
+      <div class="pal p4">
+        <h4>4. Projeter, simuler</h4>
+        <p>Prolonger, tester un scénario, déplacer un seuil et voir bouger le résultat en même temps que la décision.</p>
+        <div class="qui">Aujourd'hui : <b>rarement fait</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Un exemple, tout de suite</h2>
+    <p class="lead">Voici ce que rend la quatrième marche, celle qu'on ne monte presque jamais. La question porte sur une décision commerciale, et la réponse contient un optimum, c'est-à-dire un point au-delà duquel en faire plus coûte plus que ça ne rapporte.</p>
+    <span class="who">La question posée</span>
+    <span class="ask">Si on relance les clients par ordre de score de départ, montre-moi ce que ça donne selon la part du portefeuille relancée : contrats sauvés, coût de la relance, et valeur nette préservée. Dis-moi où est le point où on arrête.</span>
+    <div class="vz" id="accroche" style="margin-top:1rem"></div>
+    <div class="note good">
+      <p><strong>Ce sommet n'est pas une opinion, il se calcule.</strong> La courbe monte, atteint un maximum, puis redescend : au-delà d'un certain effort, on relance des clients qui ne seraient pas partis, et chaque contact supplémentaire coûte sans rien préserver. Le point se déplace dès qu'on change une hypothèse, et on peut le refaire pendant la réunion plutôt que trois jours après.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Le site en quatre temps</h2>
+    <div class="grid g2">
+      <a class="tile" href="le-principe.html">
+        <div class="n">01</div>
+        <div class="t">Le principe</div>
+        <div class="d">Ce que change un agent qui écrit du code et l'exécute : le calcul est réel et relisible, mais la responsabilité du raisonnement se déplace sur celui qui pose la question.</div>
+        <div class="go">Lire →</div>
+      </a>
+      <a class="tile" href="les-analyses.html">
+        <div class="n">02</div>
+        <div class="t">Les analyses</div>
+        <div class="d">Ce qu'on peut demander, métier par métier : tarification, provisionnement, sinistres, attrition, fraude, ressources humaines. Avec les graphiques et la méthode employée.</div>
+        <div class="go">Voir les exemples →</div>
+      </a>
+      <a class="tile" href="la-methode.html">
+        <div class="n">03</div>
+        <div class="t">La méthode</div>
+        <div class="d">Comment poser une question exploitable, comment vérifier une réponse, et les quatre pièges qui produisent un graphique convaincant et faux.</div>
+        <div class="go">Apprendre →</div>
+      </a>
+      <a class="tile" href="demo/index.html">
+        <div class="n">04</div>
+        <div class="t">La démonstration</div>
+        <div class="d">Une application où l'on écrit une phrase et où une page complète apparaît dans la navigation, avec ses graphiques, ses chiffres et le code qui les a produits.</div>
+        <div class="go">Ouvrir l'application →</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Ce que ce site ne prétend pas</h2>
+    <ol class="steps">
+      <li><b>Que l'outil remplace la gouvernance des données.</b><span class="sub">Pour discuter avec n'importe quelle donnée, il faut que chaque variable soit définie quelque part. Sinon l'agent traduit une question française vers une colonne dont personne ne garantit le sens. Une démonstration comme celle-ci ne dispense pas de ce chantier, elle le rend visible.</span></li>
+      <li><b>Que le droit d'accès se règle dans l'outil.</b><span class="sub">Une zone de saisie libre sur des tables est aussi un moyen de poser une question à laquelle on n'a pas le droit d'obtenir la réponse. Le filtrage doit venir de l'identité de la personne connectée et s'appliquer avant l'exécution.</span></li>
+      <li><b>Qu'une réponse affichée est une réponse juste.</b><span class="sub">Un modèle mal spécifié produit un graphique convaincant. Le calcul est déterministe, donc vérifiable, mais un code juste qui répond à une question mal posée donne un résultat faux sans jamais se tromper.</span></li>
+    </ol>
+  </section>
+
+  <div class="prevnext">
+    <span></span>
+    <a href="le-principe.html">01 · Le principe →</a>
+  </div>
+</main>
+
+<footer class="site"><div class="in">
+  <b>Mia Insights</b> · Toutes les données de ce site sont fictives et ne décrivent aucun assureur réel.
+  Les graphiques sont dessinés par une petite bibliothèque SVG sans dépendance, le site s'ouvre sans serveur.
+</div></footer>
+
+<script src="assets/nav.js"></script>
+<script src="assets/viz.js"></script>
+<script>
+(function () {
+  var COUT = 18, PRIME = 640, N = 50000;
+  var parts = [], valeur = [];
+  for (var p = 0; p <= 60; p += 2) {
+    var n = N * p / 100, taux = p === 0 ? 0 : (0.28 - 0.0026 * p), s = n * taux * 0.34;
+    parts.push(p + ' %');
+    valeur.push(Math.round((s * PRIME - n * COUT) / 1000));
+  }
+  var best = 0;
+  valeur.forEach(function (v, i) { if (v > valeur[best]) best = i; });
+  VZ.lines(document.getElementById('accroche'), {
+    title: 'Valeur nette préservée selon la part du portefeuille relancée, en milliers d’euros',
+    sub: 'Primes des contrats sauvés moins le coût des contacts. Tout est en euros, une seule échelle.',
+    x: parts,
+    series: [{ name: 'Valeur nette préservée', color: 'var(--vz-s1)', values: valeur }],
+    height: 250, tickEvery: 3, endLabels: false,
+    xLabel: 'Part du portefeuille relancée', yLabel: 'milliers d’euros',
+    rule: { value: valeur[best], label: 'optimum, ' + parts[best] },
+    caption: 'Données fictives. Coût posé à 18 € par contact, prime annuelle moyenne à 640 €, efficacité de la relance à 34 %.'
+  });
+})();
+</script>
+</body>
+</html>

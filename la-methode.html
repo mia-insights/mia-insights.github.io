@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · La méthode — Mia Insights</title>
+<meta name="description" content="Comment poser une question exploitable à un agent d'analyse, comment vérifier une réponse, et les pièges qui produisent un graphique convaincant et faux.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/viz.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="hero">
+  <div class="in">
+    <span class="kick">Module 03</span>
+    <h1>La méthode</h1>
+    <p class="sub">L'outil supprime la barrière du code. Il ne supprime pas le raisonnement, il le déplace sur celui qui pose la question. Voici les quatre compétences que cela demande, les trois gestes de vérification, et les erreurs qui produisent un graphique convaincant et faux.</p>
+    <div class="meta">
+      <span>Quatre compétences</span>
+      <span>Trois gestes de vérification</span>
+      <span>Un atelier d'une demi-journée</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="sec">
+    <h2><span class="n">01</span>Quatre niveaux d'usage</h2>
+    <p class="lead">La progression n'est pas technique, elle est dans la question posée. On avance d'un niveau quand on a vu que le précédent ne suffisait plus.</p>
+    <div class="grid g4">
+      <div class="card">
+        <span class="k">Niveau 1</span>
+        <h4>Retrouver un chiffre</h4>
+        <p>La même chose qu'un tableau de bord, en plus rapide à obtenir. C'est le premier usage de tout le monde, et il est légitime.</p>
+        <p style="font-style:italic;color:var(--ink)">« Combien de sinistres déclarés ce mois-ci ? »</p>
+      </div>
+      <div class="card">
+        <span class="k">Niveau 2</span>
+        <h4>Croiser deux axes</h4>
+        <p>La première chose qu'un tableau de bord ne prévoit pas toujours. C'est là que l'outil rend un service qui n'existait pas.</p>
+        <p style="font-style:italic;color:var(--ink)">« Le même comptage, par garantie et par canal. »</p>
+      </div>
+      <div class="card">
+        <span class="k">Niveau 3</span>
+        <h4>Poser une règle de gestion</h4>
+        <p>On ne demande plus un chiffre, on pose les conditions dans lesquelles ce chiffre a un sens.</p>
+        <p style="font-style:italic;color:var(--ink)">« La même chose, sans les contrats de moins de six mois, en pourcentage. »</p>
+      </div>
+      <div class="card">
+        <span class="k">Niveau 4</span>
+        <h4>Chercher une explication</h4>
+        <p>La question porte sur le pourquoi. La réponse est alors une piste à vérifier, jamais une conclusion.</p>
+        <p style="font-style:italic;color:var(--ink)">« Qu'est-ce qui distingue le segment qui décroche ? »</p>
+      </div>
+    </div>
+    <div class="note warn">
+      <p><strong>Le niveau 4 change de nature et demande une prudence particulière.</strong> Chercher ce qui distingue un groupe d'un autre, c'est faire de la statistique, et un écart apparaît toujours si l'on cherche assez longtemps. Une réponse de ce niveau se traite comme une hypothèse à confronter au terrain, pas comme un résultat.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">02</span>Les quatre compétences</h2>
+    <p class="lead">Aucune n'est une compétence de programmation. Toutes s'acquièrent en posant des questions à des données qu'on connaît déjà.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="k">Compétence 1</span>
+        <h4>Formuler une question complète</h4>
+        <p>Une question exploitable dit sur quoi elle porte, sur quelle période, ce qu'elle exclut, et sous quelle forme la réponse est attendue. « Montre-moi les résultats de l'enquête » n'est pas une question. « Le taux de satisfaction à la question 3, par direction, en excluant les directions de moins de dix répondants, en barres empilées » en est une.</p>
+        <p>Ce qui s'apprend ici n'est pas une syntaxe, c'est l'habitude de décomposer sa propre pensée avant de la dicter.</p>
+      </div>
+      <div class="card">
+        <span class="k">Compétence 2</span>
+        <h4>Savoir comment les données sont rangées</h4>
+        <p>Sans écrire une ligne de code, il faut savoir quelles tables existent, ce que contient chaque colonne, et par quelle clé deux sources se rejoignent. Croiser une enquête interne avec une donnée d'activité suppose une colonne commune, et si elle n'existe pas, aucune formulation habile ne la fera apparaître.</p>
+      </div>
+      <div class="card">
+        <span class="k">Compétence 3</span>
+        <h4>Reprendre plutôt que recommencer</h4>
+        <p>La première réponse est rarement la bonne, et ce n'est pas un défaut. Le graphique sort illisible parce qu'il y a trente catégories, alors on demande de regrouper les plus petites, de passer en pourcentages, de trier autrement. La valeur se trouve au troisième échange, pas au premier.</p>
+        <p>L'obstacle observé est rarement technique : beaucoup abandonnent après une réponse décevante, en croyant que l'outil ne sait pas faire, alors que c'est la question qu'il fallait reprendre.</p>
+      </div>
+      <div class="card">
+        <span class="k">Compétence 4</span>
+        <h4>Ne pas croire un chiffre parce qu'il s'affiche</h4>
+        <p>C'est la plus importante, et c'est celle qui protège tout le reste. La personne du métier connaît la réalité du terrain, elle est donc la mieux placée pour dire qu'un résultat est impossible. Un taux d'insatisfaction de 95 % sur une équipe n'est pas un résultat, c'est un signal qu'il faut regarder le calcul.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">03</span>Vérifier, en trois gestes</h2>
+    <p class="lead">La vérification ne demande aucune compétence technique. Elle demande trois habitudes, et elles s'installent en quelques semaines si on les pratique dès le premier jour.</p>
+    <ol class="steps">
+      <li><b>Annoncer l'ordre de grandeur avant de poser la question.</b><span class="sub">Dire à voix haute « je m'attends à quelques centaines » avant d'obtenir la réponse. Si le résultat est à cent fois de l'attendu, le premier réflexe devient de chercher l'erreur de logique, et non d'accepter le chiffre parce qu'il est affiché.</span></li>
+      <li><b>Demander les lignes qui portent le résultat.</b><span class="sub">Une réponse doit pouvoir être ramenée à quelques cas concrets qu'on va lire à la main. Trois dossiers extrêmes suffisent à repérer qu'une catégorie a été comptée deux fois, ou qu'un filtre n'a pas été appliqué.</span></li>
+      <li><b>Refaire le calcul autrement.</b><span class="sub">La même question posée sous une autre forme doit donner le même résultat. Quand les deux réponses divergent, l'une des deux questions était ambiguë, et c'est une information utile en soi.</span></li>
+    </ol>
+    <div class="note good">
+      <p><strong>Une règle simple à retenir :</strong> celui qui pose la question est responsable du chiffre qu'il diffuse. L'outil ne signe pas, il calcule. Cela vaut d'être dit dès la première séance, parce que c'est la seule chose qui change vraiment par rapport à un tableau de bord validé une fois pour toutes.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">04</span>Quatre erreurs qui produisent un graphique convaincant et faux</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>L'erreur</th><th>Ce qu'elle produit</th><th>Comment on l'évite</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>La moyenne de pourcentages</strong></td>
+            <td>Un taux global qui n'est le taux de personne, parce que les groupes n'ont pas la même taille.</td>
+            <td>Recalculer le rapport sur les totaux, jamais faire la moyenne des rapports. Rien à l'écran ne le signale.</td>
+          </tr>
+          <tr>
+            <td><strong>La fuite de données</strong></td>
+            <td>Un modèle de prédiction quasi parfait, qui utilise une information qui n'existe qu'après l'événement à prédire.</td>
+            <td>Écarter explicitement les variables postérieures. C'est la personne du métier qui sait lesquelles.</td>
+          </tr>
+          <tr>
+            <td><strong>Le classement sans filtre de volume</strong></td>
+            <td>Une tête de classement occupée par des groupes à trois observations dont une seule est atypique.</td>
+            <td>Poser le seuil de volume <em>avant</em> le calcul du taux, pas après.</td>
+          </tr>
+          <tr>
+            <td><strong>Le taux sur un petit effectif</strong></td>
+            <td>Un chiffre qui n'est plus un agrégat mais une désignation, quand la donnée porte sur des personnes.</td>
+            <td>Fixer le seuil dans la définition de la source, l'appliquer automatiquement, et écrire sous le graphique ce qui a été retiré.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Ces quatre erreurs ont un point commun : elles ne provoquent aucun message d'erreur. Le programme s'exécute, le graphique s'affiche, et il est faux. C'est exactement pour cela que la vérification revient à la personne qui connaît le métier.</p>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">05</span>Un atelier d'une demi-journée</h2>
+    <p class="lead">Quatre séquences, sur des données que les participants connaissent déjà. Le format tient en une demi-journée et se répète autant de fois qu'il y a de groupes.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Séquence</th><th>Durée</th><th>Ce qu'on y fait</th><th>Ce qu'on en retire</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Ouvrir la boîte</strong></td>
+            <td>1 h</td>
+            <td>Reconstruire un algorithme simple, un arbre de décision par exemple, à la main dans un tableur, sans aucun outil supplémentaire.</td>
+            <td>L'effet de boîte noire tombe. Les participants voient que les calculs s'enchaînent, et ils savent ensuite quoi demander.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Formuler</strong></td>
+            <td>1 h</td>
+            <td>Traduire des demandes métier réelles en questions complètes. Comparer en direct ce que rend une question vague et ce que rend la même question précisée.</td>
+            <td>L'habitude de dire la période, les exclusions et la forme attendue, sans y penser.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Chercher</strong></td>
+            <td>1 h 30</td>
+            <td>Chaque groupe part d'un problème métier qu'il n'a pas résolu, sur ses propres données, et travaille avec l'outil. Un profil technique passe de groupe en groupe pour aider à relire ce que l'agent a fait.</td>
+            <td>La pratique de la reprise. C'est la séquence la plus longue, et c'est voulu.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Vérifier et restituer</strong></td>
+            <td>30 min</td>
+            <td>Chaque groupe présente sa trouvaille et dit comment il a vérifié qu'elle tenait.</td>
+            <td>La vérification devient une norme de groupe, pas une consigne descendante.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Deux conditions de réussite. La première, des groupes de six à huit personnes au plus, sinon la séquence 3 n'est pas accompagnable. La seconde, des données réelles et connues des participants : sur un jeu de données d'exemple, personne ne repère une aberration, donc personne n'apprend à vérifier.</p>
+  </section>
+
+  <div class="prevnext">
+    <a href="les-analyses.html">← 02 · Les analyses</a>
+    <a href="demo/index.html">04 · La démonstration →</a>
+  </div>
+</main>
+
+<footer class="site"><div class="in">
+  <b>Mia Insights</b> · Toutes les données de ce site sont fictives et ne décrivent aucun assureur réel.
+</div></footer>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>

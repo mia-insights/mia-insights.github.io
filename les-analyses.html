@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · Les analyses — Mia Insights</title>
+<meta name="description" content="Ce qu'on peut demander métier par métier en assurance : tarification, provisionnement, sinistres, attrition, fraude, ressources humaines. Graphiques interactifs, données fictives.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/viz.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="hero">
+  <div class="in">
+    <span class="kick">Module 02</span>
+    <h1>Les analyses, métier par métier</h1>
+    <p class="sub">Six métiers de l'assurance, six questions qui ne se posent pas à un tableau de bord. Pour chacune : la question en français, le graphique obtenu, la méthode employée, et ce qu'il faut avoir sous la main pour que ce soit vrai.</p>
+    <div class="meta">
+      <span>Six exemples</span>
+      <span>Graphiques interactifs, survolez-les</span>
+      <span>Toutes les données sont fictives</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="fictif">
+    <span class="tag">Données fictives</span>
+    <span><b>Aucun chiffre de cette page ne décrit un assureur réel.</b> Les jeux de données sont inventés pour montrer une forme de réponse et une méthode. Chaque graphique porte sous lui le tableau de ses valeurs.</span>
+  </div>
+
+  <!-- ------------------------------------------------------------------ 01 -->
+  <section class="sec">
+    <h2><span class="n">01</span>Actuariat · la prime technique contre la prime pratiquée</h2>
+    <span class="who">L'actuaire demande</span>
+    <span class="ask">Ajuste un modèle fréquence multipliée par coût sur les trois derniers exercices, sors la prime technique par segment, compare-la à la prime moyenne réellement pratiquée, et montre-moi l'écart en pourcentage, du plus sous-tarifé au plus sur-tarifé.</span>
+    <div class="vz" id="a-tarif" style="margin-top:1rem"></div>
+    <div class="grid g2">
+      <div class="card">
+        <span class="k">La méthode</span>
+        <h4>Deux modèles linéaires généralisés</h4>
+        <p>Un sur la fréquence en loi de Poisson avec l'exposition en décalage, un sur le coût moyen en loi gamma sur les seuls contrats sinistrés. La prime technique est le produit des deux, augmenté du chargement de gestion.</p>
+      </div>
+      <div class="card">
+        <span class="k">Ce qu'il faut</span>
+        <h4>Contrats, sinistres, primes encaissées</h4>
+        <p>Reliés par une clé stable, avec une exposition correcte. <strong>Et un cadre</strong> : un modèle qui touche au prix ou à l'accès à un produit d'assurance est un système à haut risque au sens du règlement européen sur l'IA. Ce qui sort ici est une aide à l'analyse, pas un tarif appliqué.</p>
+      </div>
+    </div>
+    <div class="note warn">
+      <p><strong>Le piège, et il est instructif.</strong> Un écart de tarification n'est pas une erreur. Il peut venir d'un choix commercial assumé, d'une contrainte réglementaire, ou d'un segment que l'on accepte de perdre. L'outil montre l'écart, il ne dit pas ce qu'il faut en faire.</p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ 02 -->
+  <section class="sec">
+    <h2><span class="n">02</span>Provisionnement · le triangle et la charge ultime</h2>
+    <span class="who">L'actuaire demande</span>
+    <span class="ask">Construis le triangle des règlements cumulés par exercice de survenance et par année de développement, déroule-le en chain ladder, et donne-moi la charge ultime et la provision à constituer.</span>
+    <div class="vz" id="a-tri" style="margin-top:1rem"></div>
+    <p>Le triangle est le geste le plus banal du métier et le plus pénible à refaire à la main. L'intérêt n'est pas de le produire, c'est de pouvoir demander tout de suite « refais-le en excluant les trois sinistres les plus lourds », puis « refais-le par produit », et de comparer. Chaque variante est une nouvelle question, pas un nouveau développement.</p>
+    <div class="note">
+      <p><strong>Le point où la définition des dates compte le plus.</strong> Un sinistre porte une date de survenance, une date de déclaration et une date de paiement. Le triangle change complètement selon celle qu'on retient, et ce choix appartient au métier, pas à l'outil.</p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ 03 -->
+  <section class="sec">
+    <h2><span class="n">03</span>Sinistres · repérer une dérive avant la fin de la saison</h2>
+    <span class="who">Le responsable de plateau demande</span>
+    <span class="ask">Sur cette garantie, compare la fréquence hebdomadaire observée à ce qu'on attendrait compte tenu de la saison et de l'exposition, pose des limites à trois écarts types, et signale les semaines qui sortent.</span>
+    <div class="vz" id="a-ctrl" style="margin-top:1rem"></div>
+    <div class="note">
+      <p><strong>Pourquoi une carte de contrôle et pas une courbe simple.</strong> Une courbe montre que le chiffre monte, elle ne dit pas si c'est anormal. Les limites transforment une impression en décision : au-dessus, on regarde les dossiers ; en dessous, on ne mobilise personne. C'est ce qui permet d'agir sur des dossiers avant qu'une saison entière ne soit passée.</p>
+      <p>Le terme le plus souvent manquant est l'exposition, c'est-à-dire le nombre de contrats couverts à la même date. Sans lui, une hausse de volume peut n'être qu'une hausse du portefeuille.</p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ 04 -->
+  <section class="sec">
+    <h2><span class="n">04</span>Commercial · qui part, et à quel moment</h2>
+    <span class="who">Le responsable marketing demande</span>
+    <span class="ask">Trace la courbe de rétention des contrats par cohorte d'année de souscription sur trente-six mois, puis dis-moi quelles variables pèsent le plus dans le départ, en excluant celles qu'on ne connaît qu'après la résiliation.</span>
+    <div class="vz" id="a-reten" style="margin-top:1rem"></div>
+    <div class="note warn">
+      <p><strong>Le piège classique, et il est demandé explicitement dans la question.</strong> Un modèle de départ apprend très bien à prédire le départ si on lui donne des variables qui n'existent que parce que le client est déjà parti, un courrier de résiliation par exemple. Le modèle affiche alors un score parfait et ne sert à rien. Écarter ces variables fait partie de la question, et c'est la personne du métier qui sait lesquelles.</p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ 05 -->
+  <section class="sec">
+    <h2><span class="n">05</span>Fraude · le seuil est une décision, pas un réglage</h2>
+    <span class="who">L'analyste demande</span>
+    <span class="ask">Sur le score d'anomalies, montre-moi la précision et le rappel selon le seuil de déclenchement, et dis-moi combien de dossiers seraient instruits, combien ne donneraient rien, et quel montant serait couvert.</span>
+    <div class="vz" id="a-pr" style="margin-top:1rem"></div>
+    <div class="note">
+      <p><strong>Ce graphique remplace une discussion qui n'aboutit jamais.</strong> « Le modèle est-il bon » n'a pas de réponse, parce qu'elle dépend du seuil, et que le seuil dépend du nombre d'enquêteurs disponibles. En posant la capacité comme contrainte et en déplaçant le seuil, une direction voit ce qu'elle achète et ce qu'elle renonce à voir.</p>
+      <p>Une règle de langage va avec : on ne détecte pas de la fraude, on détecte des anomalies que d'autres qualifient. L'enquête, la confrontation et le jugement restent humains.</p>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------------ 06 -->
+  <section class="sec">
+    <h2><span class="n">06</span>Ressources humaines · le croisement qu'un rapport figé ne donne pas</h2>
+    <span class="who">La direction des ressources humaines demande</span>
+    <span class="ask">Sur la question « je dispose des moyens de faire mon travail correctement », donne-moi la répartition des réponses par direction, en excluant les directions de moins de dix répondants, en barres empilées centrées sur la réponse neutre.</span>
+    <div class="vz" id="a-baro" style="margin-top:1rem"></div>
+    <div class="note warn">
+      <p><strong>La règle des petits effectifs n'est pas une option de présentation.</strong> Un taux calculé sur six personnes n'est plus un agrégat, c'est une désignation. Le seuil se pose dans la définition de la source, il s'applique automatiquement, et le fait qu'on ait retiré des groupes s'écrit sous le graphique plutôt que de se cacher.</p>
+      <p>Une enquête interne est livrée une fois avec une centaine de graphiques figés, et la question utile est presque toujours la cent-unième : « reprends la même question, mais croise par ancienneté plutôt que par direction, et enlève les managers ».</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Et ensuite</h2>
+    <p class="lead">Ces six exemples sont statiques. Dans l'application de démonstration, les mêmes analyses sont produites à la demande, avec des curseurs qui recalculent en direct et le code écrit par l'agent affiché en haut de chaque page.</p>
+    <div class="grid g2">
+      <a class="tile" href="demo/index.html">
+        <div class="n">04</div>
+        <div class="t">La démonstration</div>
+        <div class="d">Écrire une phrase, voir une page complète apparaître dans la navigation. Neuf analyses, des filtres qui commandent tout l'écran, des curseurs qui déplacent une décision.</div>
+        <div class="go">Ouvrir l'application →</div>
+      </a>
+      <a class="tile" href="la-methode.html">
+        <div class="n">03</div>
+        <div class="t">La méthode</div>
+        <div class="d">Comment formuler une question exploitable et comment vérifier une réponse, parce que c'est là que se joue la différence entre un chiffre utile et un graphique convaincant.</div>
+        <div class="go">Lire →</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="prevnext">
+    <a href="le-principe.html">← 01 · Le principe</a>
+    <a href="la-methode.html">03 · La méthode →</a>
+  </div>
+</main>
+
+<footer class="site"><div class="in">
+  <b>Mia Insights</b> · Toutes les données de ce site sont fictives et ne décrivent aucun assureur réel.
+</div></footer>
+
+<script src="assets/nav.js"></script>
+<script src="assets/viz.js"></script>
+<script src="demo/data.js"></script>
+<script>
+(function () {
+  var D = window.DEMO;
+
+  /* 01 tarification */
+  var t = D.tarification(0);
+  VZ.bars(document.getElementById('a-tarif'), {
+    title: 'Écart entre prime technique et prime pratiquée, par segment',
+    sub: 'Une barre vers la droite veut dire que le segment est tarifé en dessous de son coût technique.',
+    cats: t.cats, values: t.ecarts, dec: 1, unit: '%', rowH: 30, padL: 176,
+    catLabel: 'Segment', valueLabel: 'Écart',
+    color: function (v) { return v >= 0 ? 'var(--vz-pos)' : 'var(--vz-neg)'; },
+    legendItems: [
+      { name: 'Sous-tarifé, la prime technique est au-dessus', color: 'var(--vz-pos)' },
+      { name: 'Sur-tarifé, la prime technique est en dessous', color: 'var(--vz-neg)' }
+    ],
+    caption: 'Données fictives. Marge technique du portefeuille : ' + VZ.fmt(t.marge, 1, '%') + '.'
+  });
+
+  /* 02 triangle */
+  (function () {
+    var tr = D.triangle(), node = document.getElementById('a-tri');
+    node.classList.add('vz');
+    var h = '<p class="vz-title">Triangle des règlements cumulés, en milliers d’euros</p>'
+      + '<p class="vz-sub">Les cellules pleines sont observées, celles en pointillé sont déroulées '
+      + 'par les facteurs de passage. Charge ultime estimée ' + VZ.fmt(tr.ultime, 0)
+      + ' k€, provision à constituer ' + VZ.fmt(tr.provision, 0) + ' k€.</p>'
+      + '<div class="vz-tri"><table><thead><tr><th>Survenance</th>';
+    for (var j = 0; j < tr.ans.length; j++) h += '<th>' + j + '</th>';
+    h += '<th>Ultime</th><th>Provision</th></tr></thead><tbody>';
+    tr.plein.forEach(function (r, i) {
+      h += '<tr><td>' + tr.ans[i] + '</td>';
+      r.forEach(function (v, j) {
+        var proj = tr.obs[i][j] === null;
+        h += '<td class="' + (proj ? 'proj' : '') + '" title="'
+          + (proj ? 'valeur déroulée' : 'valeur observée') + '">' + VZ.fmt(v, 0) + '</td>';
+      });
+      var ult = r[tr.ans.length - 1];
+      var reg = tr.obs[i].filter(function (v) { return v !== null; }).pop();
+      h += '<td class="fac">' + VZ.fmt(ult, 0) + '</td><td class="ibnr">' + VZ.fmt(ult - reg, 0) + '</td></tr>';
+    });
+    h += '<tr><td>Facteurs de passage</td>';
+    tr.fac.forEach(function (v) { h += '<td class="fac">' + VZ.fmt(v, 3) + '</td>'; });
+    h += '<td class="fac">1,000</td><td class="fac">' + VZ.fmt(tr.ultime, 0) + '</td>'
+      + '<td class="ibnr">' + VZ.fmt(tr.provision, 0) + '</td></tr></tbody></table></div>'
+      + '<p class="caption">Données fictives. Survoler une cellule indique si elle est observée ou déroulée.</p>';
+    node.innerHTML = h;
+  })();
+
+  /* 03 carte de contrôle */
+  var c = D.controle(0);
+  VZ.lines(document.getElementById('a-ctrl'), {
+    title: 'Fréquence hebdomadaire pour mille contrats exposés · ' + c.nom.toLowerCase(),
+    sub: 'Observé contre attendu saisonnier. Les limites sont posées à trois écarts types de l’attendu.',
+    x: c.sem,
+    series: [
+      { name: 'Attendu saisonnier', color: 'var(--vz-gray)', values: c.attendu },
+      { name: 'Observé', color: 'var(--vz-s1)', values: c.observe }
+    ],
+    dec: 2, height: 260, tickEvery: 4, endLabels: false,
+    xLabel: 'Semaine', yLabel: 'pour mille contrats',
+    limits: { lo: c.lo, hi: c.hi, loLabel: 'limite basse', hiLabel: 'limite haute' },
+    flagSeries: 1,
+    caption: 'Données fictives. Un point rouge n’est pas un problème, c’est une semaine à regarder.'
+  });
+
+  /* 04 rétention */
+  var r = D.retention();
+  VZ.lines(document.getElementById('a-reten'), {
+    title: 'Contrats encore en portefeuille, par cohorte de souscription',
+    sub: 'Base cent au mois de souscription. Les contrats en cours à la date d’arrêt sont traités comme tels, pas comme des départs.',
+    x: r.mois,
+    series: r.cohortes.map(function (co, k) {
+      return { name: co.nom, color: 'var(--vz-s' + (k + 1) + ')', values: co.v };
+    }),
+    dec: 1, unit: '%', height: 265, tickEvery: 3,
+    xLabel: 'Mois depuis la souscription', yLabel: 'contrats restants, base 100',
+    caption: 'Données fictives. Les décrochements au douzième et au vingt-quatrième mois sont les échéances annuelles, moment où un client décide.'
+  });
+
+  /* 05 précision et rappel */
+  var pr = D.courbePR(), a = D.auSeuil(70);
+  VZ.lines(document.getElementById('a-pr'), {
+    title: 'Précision et rappel du score d’anomalies, selon le seuil',
+    sub: 'Les deux séries sont des pourcentages, donc sur une seule échelle. Au seuil 70 : '
+      + VZ.fmt(a.retenus, 0) + ' dossiers à instruire, dont ' + VZ.fmt(a.faux, 0) + ' qui ne donneront rien.',
+    x: pr.seuils,
+    series: [
+      { name: 'Précision, part des dossiers retenus qui sont fondés', color: 'var(--vz-s1)', values: pr.precision },
+      { name: 'Rappel, part des cas fondés qui sont retenus', color: 'var(--vz-s2)', values: pr.rappel }
+    ],
+    dec: 1, unit: '%', height: 255, tickEvery: 5, endLabels: false,
+    xLabel: 'Seuil', yLabel: 'pourcentage',
+    rule: { value: pr.precision[40], label: 'précision au seuil 70' },
+    caption: 'Données fictives. Monter le seuil augmente la précision et fait baisser le rappel : on instruit moins de dossiers, et on en rate davantage.'
+  });
+
+  /* 06 baromètre */
+  var R = D.RH;
+  VZ.likert(document.getElementById('a-baro'), {
+    title: '« Je dispose des moyens de faire mon travail correctement »',
+    sub: 'Répartition des réponses par direction, centrée sur la réponse neutre. Le nombre à droite est le total des réponses favorables.',
+    cats: R.directions, negCount: 2,
+    series: R.modalites.map(function (m, k) {
+      return { name: m.nom, color: m.c, values: R.reponses.map(function (x) { return x[k]; }) };
+    }),
+    catLabel: 'Direction', padL: 176, rowH: 36,
+    caption: 'Données fictives. Deux directions de moins de dix répondants ont été retirées du graphique, et c’est écrit ici plutôt que caché.'
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démonstration · Mia Insights</title>
+<link rel="stylesheet" href="../assets/viz.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="side">
+    <a class="brand" href="#apercu">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round">
+          <path d="M5 19V12M12 19V5M19 19v-4"/>
+        </svg>
+      </span>
+      <span><b>Mia Insights</b><span>démonstration</span></span>
+    </a>
+    <nav id="menu"></nav>
+    <div class="foot">
+      <b>Données fictives</b>
+      Aucun chiffre de cette application ne décrit un assureur réel.
+      <a href="../index.html">Retour au site</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <h1 id="titre">Vue d’ensemble</h1>
+      <span class="sep"></span>
+      <div class="filters" id="filtres">
+        <select id="f-periode" aria-label="Période">
+          <option value="8">8 trimestres</option>
+          <option value="12" selected>12 trimestres</option>
+          <option value="16">16 trimestres</option>
+        </select>
+        <select id="f-branche" aria-label="Branche">
+          <option value="*" selected>Toutes les branches</option>
+          <option value="auto">Automobile</option>
+          <option value="hab">Habitation</option>
+          <option value="sante">Santé</option>
+          <option value="prev">Prévoyance</option>
+          <option value="rc">Responsabilité civile</option>
+        </select>
+        <select id="f-reseau" aria-label="Réseau">
+          <option value="*" selected>Tous les réseaux</option>
+          <option value="agents">Agents</option>
+          <option value="courtiers">Courtiers</option>
+          <option value="direct">Direct et espace client</option>
+        </select>
+      </div>
+      <span class="stamp" id="stamp"></span>
+      <button class="ask" id="ask">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5a8.4 8.4 0 0 1-.9-3.8 8.4 8.4 0 0 1 8.4-9 8.4 8.4 0 0 1 8.6 8.3z"/>
+        </svg>
+        <span>Poser une question</span>
+      </button>
+    </header>
+
+    <main class="view zone" id="vue"></main>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="chat" id="chat" aria-label="Demander une analyse">
+  <div class="hd">
+    <div>
+      <b>Demander une analyse</b>
+      <div class="sub">L’agent écrit le code, l’exécute, et construit la page</div>
+    </div>
+    <button class="x" id="closechat" aria-label="Fermer">&times;</button>
+  </div>
+  <div class="body" id="chatbody"></div>
+  <div class="ft">
+    <form class="row" id="form" autocomplete="off">
+      <input type="text" id="q" placeholder="Par exemple : analyse le provisionnement en responsabilité civile">
+      <button class="send" type="submit">Envoyer</button>
+    </form>
+    <div class="chips" id="chips"></div>
+  </div>
+</aside>
+
+<script src="../assets/viz.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

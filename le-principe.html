@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 · Le principe — Mia Insights</title>
+<meta name="description" content="Ce que change un agent qui écrit du code et l'exécute : le calcul est réel et relisible, et la responsabilité du raisonnement se déplace sur celui qui pose la question.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/viz.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="hero">
+  <div class="in">
+    <span class="kick">Module 01</span>
+    <h1>Le principe</h1>
+    <p class="sub">Un assistant de conversation ordinaire produit un mot, puis le suivant. Un agent d'analyse fait autre chose : il écrit un programme, l'exécute sur des données, et vous montre le résultat. Cette différence-là change tout, y compris ce qu'on peut lui reprocher.</p>
+    <div class="meta">
+      <span>Lecture de six minutes</span>
+      <span>Un graphique interactif</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="sec">
+    <h2><span class="n">01</span>Deux façons très différentes de répondre</h2>
+    <p class="lead">La distinction est simple et elle décide de la confiance qu'on peut accorder à la réponse.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="k">Ce que fait un assistant ordinaire</span>
+        <h4>Il produit un texte plausible</h4>
+        <p>Il a lu beaucoup de choses et il continue votre phrase. Si vous lui demandez un chiffre, il en écrit un qui ressemble à un chiffre juste. Rien dans le mécanisme ne garantit qu'il a compté quoi que ce soit.</p>
+        <p>C'est pour cela qu'on ne demande pas un montant à un assistant de conversation.</p>
+      </div>
+      <div class="card">
+        <span class="k">Ce que fait un agent d'analyse</span>
+        <h4>Il écrit un programme et l'exécute</h4>
+        <p>Il traduit votre question en requêtes et en calculs, les exécute sur les tables, et vous rend ce que le calcul a produit. Le chiffre vient de la donnée, pas du modèle de langue.</p>
+        <p>Le calcul est donc déterministe, reproductible, et le code peut être relu par quelqu'un de technique.</p>
+      </div>
+    </div>
+    <div class="note">
+      <p><strong>Le point rassurant, et il mérite d'être dit tôt.</strong> Comme le calcul est réel, une erreur laisse une trace lisible. On peut demander à voir le code, le rejouer, et retrouver les lignes qui portent le résultat. C'est une différence de nature avec un assistant qui répondrait de mémoire.</p>
+      <p><strong>Le point qui l'est moins.</strong> Un code juste qui répond à une question mal posée donne un résultat faux sans jamais se tromper. La rigueur n'a pas disparu, elle a changé de place : elle est passée de l'écriture du code à la formulation de la question.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">02</span>Ce que l'outil supprime, ce qu'il ajoute</h2>
+    <p class="lead">Devant un tableau de bord, on consomme. Le périmètre a été pensé, modélisé et figé par quelqu'un d'autre, et les garde-fous sont dedans. Devant une zone de saisie libre, on enquête, et les garde-fous ne sont plus dans l'outil.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Le geste</th><th>Avec un tableau de bord</th><th>Avec un tableur</th><th>Avec un agent</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Obtenir un chiffre prévu</strong></td>
+            <td>Immédiat, c'est son métier</td>
+            <td>Un export, puis une somme</td>
+            <td>Immédiat</td>
+          </tr>
+          <tr>
+            <td><strong>Croiser deux axes non prévus</strong></td>
+            <td>Impossible sans redéveloppement</td>
+            <td>Possible, à la main, une fois</td>
+            <td>Une phrase</td>
+          </tr>
+          <tr>
+            <td><strong>Ajuster un modèle sur l'historique</strong></td>
+            <td>Hors de portée</td>
+            <td>Hors de portée en pratique</td>
+            <td>Une phrase, et le code est montré</td>
+          </tr>
+          <tr>
+            <td><strong>Refaire avec une hypothèse différente</strong></td>
+            <td>Nouveau ticket</td>
+            <td>Nouveau fichier, et l'ancien devient faux</td>
+            <td>Une relance dans la même conversation</td>
+          </tr>
+          <tr>
+            <td><strong>Retrouver comment le chiffre a été fait</strong></td>
+            <td>Écrit quelque part, parfois</td>
+            <td>Dans la tête de la personne qui l'a fait</td>
+            <td>Dans le code produit, qui reste</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La dernière ligne est celle qu'on remarque le plus tard et qui compte le plus. Un classeur de calcul emporte son raisonnement avec lui : six mois après, personne ne sait plus pourquoi telle ligne était exclue. Un code produit reste lisible, et il se rejoue.</p>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">03</span>La relance, qui est le vrai apport</h2>
+    <p class="lead">Le premier graphique, un tableau de bord bien construit le donnait déjà. La valeur apparaît à la question suivante, celle que personne n'avait prévue et qui naît en regardant le résultat précédent.</p>
+
+    <span class="who">Première question</span>
+    <span class="ask">Sur les trois derniers exercices en automobile, donne-moi la prime pure par tranche d'âge du conducteur et par zone de résidence, en excluant les contrats de moins de six mois d'ancienneté.</span>
+    <div class="vz" id="p-heat" style="margin-top:1rem"></div>
+
+    <span class="who">La relance</span>
+    <span class="ask">Refais la même chose en séparant les contrats avec au moins un sinistre responsable dans les vingt-quatre derniers mois, et dis-moi sur quelles cellules l'écart entre les deux populations est le plus fort.</span>
+    <p>Cette deuxième question n'existe dans aucun tableau de bord, parce que personne n'avait prévu ce croisement. Elle prend quelques secondes, et c'est elle qui prépare une décision de tarification. La troisième question, elle, naîtra du résultat de la deuxième.</p>
+
+    <div class="note warn">
+      <p><strong>Une règle de gestion fait partie de la question, pas du travail technique.</strong> Dans l'exemple ci-dessus, exclure les contrats de moins de six mois n'est pas un détail de mise en forme : sans cette exclusion, la prime pure est faussée par des contrats dont l'exposition est partielle. Personne ne peut deviner cette règle à la place de celui qui pose la question, parce qu'elle vient du métier.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">04</span>Ce qu'il faut réunir avant de commencer</h2>
+    <p class="lead">Quatre conditions. Trois sont des conditions de fond, la quatrième est celle qui bloque le plus souvent.</p>
+    <ol class="steps">
+      <li><b>Le sens de chaque colonne est écrit quelque part.</b><span class="sub">C'est la condition la plus souvent oubliée. Sans définition des variables, l'agent traduit une question française vers une colonne dont personne ne garantit le sens, et il produit un chiffre faux qui a l'air vrai.</span></li>
+      <li><b>Une clé qui relie les sources entre elles.</b><span class="sub">Croiser deux sources suppose une colonne commune sur laquelle les rapprocher. Si elle n'existe pas, aucune formulation habile ne la fera apparaître.</span></li>
+      <li><b>Une date qui fait foi, choisie et la même partout.</b><span class="sub">Un sinistre porte une date de survenance, une date de déclaration et une date de règlement. Les trois racontent une histoire différente, et le choix se fait avant la question, pas pendant.</span></li>
+      <li><b>Le droit de lire, appliqué à la personne connectée.</b><span class="sub">Un tableau de bord est protégé par sa construction : il ne montre que ce qu'on y a mis. Cette protection disparaît dès qu'on ouvre une zone de saisie libre, et elle doit être remplacée par un filtrage qui vient de l'identité et s'applique avant l'exécution de la requête.</span></li>
+    </ol>
+  </section>
+
+  <div class="prevnext">
+    <a href="index.html">← Accueil</a>
+    <a href="les-analyses.html">02 · Les analyses →</a>
+  </div>
+</main>
+
+<footer class="site"><div class="in">
+  <b>Mia Insights</b> · Toutes les données de ce site sont fictives et ne décrivent aucun assureur réel.
+</div></footer>
+
+<script src="assets/nav.js"></script>
+<script src="assets/viz.js"></script>
+<script>
+VZ.heat(document.getElementById('p-heat'), {
+  title: 'Prime pure annuelle par tranche d’âge et par zone, en euros',
+  sub: 'Fréquence multipliée par coût moyen, trois exercices clos, contrats de plus de six mois.',
+  rows: ['18 à 25 ans', '26 à 35 ans', '36 à 50 ans', '51 à 65 ans', '66 ans et plus'],
+  cols: ['Centre', 'Sud', 'Nord', 'Est', 'Frontaliers'],
+  values: [
+    [452, 388, 301, 324, 411],
+    [318, 276, 214, 233, 297],
+    [241, 208, 168, 179, 226],
+    [203, 181, 149, 158, 194],
+    [229, 206, 176, 184, 218]
+  ],
+  rowLabel: 'Tranche d’âge', valueLabel: 'Prime pure', unit: '€',
+  scale: ['prime pure basse', 'prime pure haute'],
+  caption: 'Données fictives. La lecture qui compte n’est pas la cellule la plus foncée, c’est l’écart entre deux colonnes à âge égal.'
+});
+</script>
+</body>
+</html>

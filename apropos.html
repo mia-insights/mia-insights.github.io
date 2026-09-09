@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À propos — Mia Insights</title>
+<meta name="description" content="Ce qu'est ce site, pourquoi toutes ses données sont fictives, et comment il est construit.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/viz.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="hero">
+  <div class="in">
+    <span class="kick">À propos</span>
+    <h1>Ce que ce site est, et ce qu'il n'est pas</h1>
+    <p class="sub">Un site de démonstration sur une façon de travailler : ce que devient l'analyse de données quand une page entière se demande en français au lieu de se développer. Le sujet est la méthode, pas les chiffres.</p>
+  </div>
+</div>
+
+<main>
+  <section class="sec">
+    <h2><span class="n">01</span>Toutes les données sont fictives</h2>
+    <div class="fictif">
+      <span class="tag">Sans exception</span>
+      <span><b>Aucun chiffre de ce site ne décrit un assureur réel</b>, ni portefeuille, ni clients, ni salariés, ni résultats. Aucun nom de personne n'y figure, et les prestataires cités dans les exemples de fraude sont des étiquettes anonymes.</span>
+    </div>
+    <p>Les valeurs sont produites par un générateur pseudo-aléatoire à graine fixe. Deux conséquences utiles : le site montre exactement la même chose à chaque ouverture, et deux personnes qui le regardent en même temps voient les mêmes chiffres, ce qui permet d'en parler.</p>
+    <p>Les libellés, eux, sont ceux du métier : branches, garanties, exercices de survenance, ratio sinistres sur primes, prime pure. Ils sont là pour que la démonstration parle à quelqu'un du secteur, pas pour suggérer une origine.</p>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">02</span>Ce que le site défend</h2>
+    <ol class="steps">
+      <li><b>Une analyse se demande, elle ne se développe pas.</b><span class="sub">Un agent qui écrit du code et l'exécute produit une page entière à partir d'une phrase. La démonstration montre le mécanisme : le prompt qui a produit chaque page est affiché en haut de cette page, avec le code écrit par l'agent.</span></li>
+      <li><b>Le calcul est réel, donc auditable.</b><span class="sub">Le chiffre vient de la donnée, pas du modèle de langue. On peut demander à voir le code, le rejouer, et retrouver les lignes qui portent le résultat.</span></li>
+      <li><b>La rigueur change de place, elle ne disparaît pas.</b><span class="sub">Un code juste qui répond à une question mal posée donne un résultat faux sans jamais se tromper. C'est l'objet du module sur la méthode.</span></li>
+      <li><b>Trois choses ne se règlent pas dans l'outil.</b><span class="sub">La définition des variables, le droit d'accès appliqué à la personne connectée, et le dispositif qui dit si une réponse est juste. Un outil de ce type les rend visibles, il ne les remplace pas.</span></li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">03</span>Comment il est fait</h2>
+    <p class="lead">Le site s'ouvre sans serveur et sans réseau. C'est une contrainte assumée : une démonstration qui dépend d'une connexion échoue le jour où l'on en a besoin.</p>
+    <div class="grid g2">
+      <div class="card">
+        <span class="k">Les graphiques</span>
+        <h4>Une bibliothèque SVG écrite à la main</h4>
+        <p>Sans dépendance, sans chargement externe. Colonnes, barres, courbes avec bande et projection, carte de chaleur, barres divergentes, carte de contrôle, plus une infobulle partagée et un tableau de valeurs sous chaque graphique.</p>
+      </div>
+      <div class="card">
+        <span class="k">Les règles de dessin</span>
+        <h4>Constantes sur tout le site</h4>
+        <ul>
+          <li>Une seule échelle de valeurs par graphique, jamais deux axes.</li>
+          <li>Barres de vingt-quatre pixels au plus, bout arrondi du côté de la valeur.</li>
+          <li>Deux pixels de surface entre deux marques qui se touchent, jamais de contour.</li>
+          <li>Étiquettes directes sur les seuls extrêmes, jamais un nombre sur chaque point.</li>
+          <li>Jamais la couleur d'une série portée par du texte.</li>
+          <li>Toute valeur lisible au survol l'est aussi dans le tableau replié.</li>
+        </ul>
+      </div>
+    </div>
+    <p>La palette catégorielle a été vérifiée pour les principales formes de daltonisme : l'ordre des teintes est fixe et ne se recycle jamais, et l'identité d'une série passe toujours par une légende et une étiquette, jamais par la couleur seule.</p>
+    <p>Une dernière règle, de mise en page celle-là : la longueur de ligne se règle par la largeur de la colonne, jamais par une largeur maximale posée sur un paragraphe. Sinon le texte devient plus étroit que le graphique d'à côté et les bords droits ne s'alignent plus.</p>
+  </section>
+
+  <section class="sec">
+    <h2><span class="n">04</span>Réutilisation</h2>
+    <p>Le code de ce site est public. Les jeux de données étant inventés, ils ne peuvent servir de référence à rien : ils servent à montrer une forme de réponse. Si vous reprenez la bibliothèque de graphiques, gardez les règles de dessin listées ci-dessus, elles sont ce qui rend les figures lisibles.</p>
+    <div class="note">
+      <p><strong>Une remarque sur les exemples métier.</strong> Ils décrivent des gestes courants de l'assurance, tarification, provisionnement, surveillance de portefeuille, attrition, détection d'anomalies. Ce sont des exemples de <em>forme</em> : la méthode citée sous chaque graphique est réelle, les données ne le sont pas, et aucune conclusion métier ne doit en être tirée.</p>
+    </div>
+  </section>
+
+  <div class="prevnext">
+    <a href="index.html">← Accueil</a>
+    <a href="demo/index.html">Ouvrir la démonstration →</a>
+  </div>
+</main>
+
+<footer class="site"><div class="in">
+  <b>Mia Insights</b> · Toutes les données de ce site sont fictives et ne décrivent aucun assureur réel.
+</div></footer>
+
+<script src="assets/nav.js"></script>
+</body>
+</html>
