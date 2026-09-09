@@ -44,7 +44,7 @@
   border-radius:100px; padding:.22rem .65rem; margin-right:.5rem; vertical-align:middle;
   background:#eef1f5; color:#4b5b6c; border:1px solid #dfe5ec;
 }
-.vz-palier.p2{ background:#e6f3f4; color:#0a5c64; border-color:#cfe6e8; }
+.vz-palier.p2{ background:#F0F5FA; color:#033767; border-color:#C9DBF0; }
 .vz-palier.p3{ background:#e8eef9; color:#1c4c8f; border-color:#d3dff2; }
 .vz-palier.p4{ background:#f3ecfa; color:#5b3a8a; border-color:#e5d8f2; }
 
@@ -161,7 +161,7 @@
 /* ---------- Paliers du hub ---------- */
 .vz-paliers{ display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; margin:1.1rem 0; }
 .vz-pal{ background:#fff; border:1px solid var(--mi-line); border-radius:14px; padding:.9rem 1rem; box-shadow:var(--mi-shadow); border-top:4px solid #dfe5ec; }
-.vz-pal.p2{ border-top-color:#7fbdc3; } .vz-pal.p3{ border-top-color:#2a78d6; } .vz-pal.p4{ border-top-color:#8b6bb5; }
+.vz-pal.p2{ border-top-color:#A8C4E2; } .vz-pal.p3{ border-top-color:#3979B4; } .vz-pal.p4{ border-top-color:#004C92; }
 .vz-pal h4{ margin:0 0 .3rem; font-size:1rem; color:var(--mi-navy); }
 .vz-pal p{ margin:0; font-size:.88rem; color:var(--mi-muted); line-height:1.45; }
 .vz-pal .qui{ margin-top:.55rem; font-size:.78rem; font-weight:700; color:var(--vz-ink2); }
@@ -173,7 +173,7 @@
 .vz-dirs .in::-webkit-scrollbar{ display:none; }
 .vz-dirs a{ flex:0 0 auto; text-decoration:none; white-space:nowrap; font-size:.84rem; font-weight:650; color:var(--mi-muted); padding:.35rem .75rem; border-radius:100px; border:1px solid transparent; }
 .vz-dirs a:hover{ background:var(--mi-bg); color:var(--mi-navy); }
-.vz-dirs a.cur{ background:var(--mi-accent-soft); color:var(--mi-navy); border-color:#cfe6e8; }
+.vz-dirs a.cur{ background:var(--mi-accent-soft); color:var(--mi-navy); border-color:#C9DBF0; }
 
 @media (max-width:960px){ .vz-paliers{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:680px){

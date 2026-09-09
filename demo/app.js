@@ -1146,7 +1146,9 @@
     etat.vue = v;
     dessinerMenu();
     rendreVue();
-    window.scrollTo(0, 0);
+    // C'est la colonne centrale qui defile, pas la fenetre.
+    var col = document.querySelector('.main');
+    if (col) col.scrollTop = 0;
   }
 
   function dessinerOnglets(r) {

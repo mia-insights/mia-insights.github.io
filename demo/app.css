@@ -31,11 +31,14 @@ body{
 a{ color:var(--mi-info); }
 button{ font:inherit; }
 
-.app{ display:flex; min-height:100vh; }
+/* Deux colonnes qui defilent chacune pour soi. La fenetre elle-meme ne defile
+   pas : c'est la colonne centrale qui porte sa barre de defilement, a gauche de
+   la colonne de Mia, et Mia reste en place pendant qu'on parcourt le miabord. */
+.app{ display:flex; height:100vh; overflow:hidden; }
 
 /* ======================================================= barre latérale */
 .side{
-  width:var(--sb); flex:0 0 var(--sb); position:sticky; top:0; height:100vh;
+  width:var(--sb); flex:0 0 var(--sb); height:100vh; overflow:hidden;
   background:linear-gradient(180deg,#01213C 0%,#022B4C 55%,#033767 100%);
   color:#CFE0F0; display:flex; flex-direction:column; z-index:40;
 }
@@ -82,10 +85,14 @@ button{ font:inherit; }
 .side .foot .retour svg{ width:15px; height:15px; flex:0 0 auto; }
 
 /* ========================================================= zone centrale */
-.main{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column; }
+.main{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column;
+  overflow-y:auto; overflow-x:hidden; scrollbar-gutter:stable; }
 
+/* La barre du haut et les onglets forment un seul bloc colle : leur hauteur
+   cumulee n'a plus a etre devinee par une variable. */
+.head{ position:sticky; top:0; z-index:30; }
 .top{
-  position:sticky; top:0; z-index:30; background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.95);
   backdrop-filter:blur(10px); border-bottom:1px solid var(--mi-line);
   display:flex; align-items:center; gap:.7rem; padding:.5rem 1.3rem; min-height:var(--top);
   flex-wrap:nowrap;                 /* la barre ne passe jamais a la ligne */
@@ -119,7 +126,7 @@ button{ font:inherit; }
 
 /* onglets d'un miabord */
 .tabs{
-  position:sticky; top:var(--top); z-index:25; background:#fff;
+  background:#fff;
   border-bottom:1px solid var(--mi-line); padding:0 1.3rem;
   display:flex; gap:.15rem; overflow-x:auto; scrollbar-width:none;
 }
@@ -198,7 +205,7 @@ button{ font:inherit; }
 
 /* ==================================================== la colonne de Mia */
 .mia{
-  flex:0 0 var(--mia); width:var(--mia); position:sticky; top:0; height:100vh;
+  flex:0 0 var(--mia); width:var(--mia); height:100vh;
   background:#fff; border-left:1px solid var(--mi-line);
   display:flex; flex-direction:column; z-index:35;
 }
@@ -361,7 +368,7 @@ details.code pre .c{ color:#7F9FC4; font-style:italic; }
   .app.sansmia .mia{ display:flex; transform:translateX(100%); }
 }
 @media (max-width:860px){
-  .side{ position:fixed; left:0; top:0; transform:translateX(-100%); transition:transform .2s ease; }
+  .side{ position:fixed; left:0; top:0; height:100vh; transform:translateX(-100%); transition:transform .2s ease; }
   .side.open{ transform:translateX(0); }
   .burger{ display:block; }
   .top{ padding:0 1rem; }
@@ -374,4 +381,6 @@ details.code pre .c{ color:#7F9FC4; font-style:italic; }
 }
 @media print{
   .side, .top, .mia, .scrim, .tabs{ display:none; }
+  .app{ height:auto; overflow:visible; }
+  .main{ overflow:visible; }
 }
