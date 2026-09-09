@@ -8,7 +8,7 @@
    propre conteneur, il n'élargit pas la colonne. */
 
 :root{
-  --navy:#01213C; --ink:#223140; --soft:#67768E; --muted:#67768E;
+  --navy:#01213C; --ink:#223140; --soft:#626F85; --muted:#626F85;
   --line:#EAEEF6; --bg:#F8F9FC; --card:#fff;
   --accent:#004C92; --accent-soft:#F0F5FA; --accent-dark:#033767;
   --amber:#D18B00; --amber-soft:#FEECD7;
@@ -16,7 +16,7 @@
   --shadow:0 1px 2px rgba(1,33,60,.04), 0 8px 24px rgba(1,33,60,.07);
   --shadow-up:0 2px 6px rgba(1,33,60,.07), 0 18px 40px rgba(1,33,60,.13);
   /* jetons attendus par viz.css */
-  --mi-navy:#01213C; --mi-ink:#223140; --mi-muted:#67768E; --mi-line:#EAEEF6;
+  --mi-navy:#01213C; --mi-ink:#223140; --mi-muted:#626F85; --mi-line:#EAEEF6;
   --mi-bg:#F8F9FC; --mi-card:#fff; --mi-accent:#004C92; --mi-accent-soft:#F0F5FA;
   --mi-ok:#008670; --mi-ok-soft:#E0F5F3; --mi-wait:#D18B00; --mi-wait-soft:#FEECD7;
   --mi-stop:#D14449; --mi-stop-soft:#FFF0F0; --mi-info:#004C92; --mi-info-soft:#F0F5FA;

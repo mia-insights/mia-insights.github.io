@@ -9,7 +9,7 @@
    de ligne. */
 
 :root{
-  --mi-navy:#01213C; --mi-ink:#223140; --mi-muted:#67768E; --mi-line:#EAEEF6;
+  --mi-navy:#01213C; --mi-ink:#223140; --mi-muted:#626F85; --mi-line:#EAEEF6;
   --mi-bg:#F8F9FC; --mi-card:#fff; --mi-accent:#004C92; --mi-accent-soft:#F0F5FA;
   --mi-ok:#008670; --mi-ok-soft:#E0F5F3; --mi-wait:#D18B00; --mi-wait-soft:#FEECD7;
   --mi-stop:#D14449; --mi-stop-soft:#FFF0F0; --mi-info:#004C92; --mi-info-soft:#F0F5FA;
