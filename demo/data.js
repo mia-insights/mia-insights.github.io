@@ -443,6 +443,62 @@ window.DEMO = (function () {
     };
   }
 
+  /* ------------------------------------------------- modeles plus pousses */
+
+  /* Segmentation non supervisee du portefeuille : k moyennes sur des variables
+     normalisees, courbe d'inertie pour choisir k, et profil de chaque segment. */
+  function segmentation() {
+    var vars = ['Prime annuelle', 'Ancienneté', 'Nombre de contrats',
+      'Fréquence sinistres', 'Recours au digital'];
+    var segs = [
+      { nom: 'Familles multi-équipées', taille: 14200, sp: 62.4,
+        profil: [78, 84, 92, 41, 55] },
+      { nom: 'Jeunes urbains mono-contrat', taille: 9800, sp: 91.2,
+        profil: [38, 22, 14, 88, 86] },
+      { nom: 'Seniors fidèles', taille: 11600, sp: 54.1,
+        profil: [52, 96, 61, 27, 18] },
+      { nom: 'Professionnels et flottes', taille: 3400, sp: 78.9,
+        profil: [96, 58, 74, 69, 47] },
+      { nom: 'Nouveaux entrants', taille: 6900, sp: 83.6,
+        profil: [44, 8, 22, 63, 74] }
+    ];
+    // Inertie intra-classe : le coude est a cinq segments.
+    var k = [], inertie = [];
+    for (var i = 2; i <= 10; i++) {
+      k.push(String(i));
+      inertie.push(Math.round((100 * Math.exp(-(i - 2) * 0.42) + 18 + (i > 5 ? 0 : 6)) * 10) / 10);
+    }
+    return { vars: vars, segs: segs, k: k, inertie: inertie,
+      total: segs.reduce(function (a, s) { return a + s.taille; }, 0) };
+  }
+
+  /* Modele de cout des sinistres : importance des variables, calibration par
+     decile de prediction, et courbe de concentration face au tarif actuel. */
+  function coutModele() {
+    var vars = ['Puissance et valeur du véhicule', 'Zone de circulation',
+      'Antécédents sur 3 ans', 'Âge du conducteur', 'Usage déclaré',
+      'Ancienneté du permis', 'Mode de paiement', 'Canal de souscription'];
+    var poids = [100, 82, 74, 61, 47, 33, 12, 7];
+    var deciles = [], predit = [], observe = [];
+    for (var d = 1; d <= 10; d++) {
+      deciles.push('D' + d);
+      var base = 120 * Math.pow(1.33, d - 1);
+      predit.push(Math.round(base));
+      observe.push(Math.round(base * (0.96 + ((d * 7919) % 17) / 200)));
+    }
+    // Concentration : part du cout portee par les x % les plus risques.
+    var parts = [], modele = [], tarif = [], hasard = [];
+    for (var p = 0; p <= 100; p += 10) {
+      parts.push(p + ' %');
+      modele.push(Math.round(100 * (1 - Math.pow(1 - p / 100, 2.35)) * 10) / 10);
+      tarif.push(Math.round(100 * (1 - Math.pow(1 - p / 100, 1.62)) * 10) / 10);
+      hasard.push(p);
+    }
+    return { vars: vars, poids: poids, deciles: deciles, predit: predit, observe: observe,
+      parts: parts, modele: modele, tarif: tarif, hasard: hasard,
+      gini: 0.402, giniTarif: 0.276, ecartMoyen: 3.1 };
+  }
+
   /* -------------------------------------------------------------- sources */
 
   var SOURCES = [
@@ -474,6 +530,7 @@ window.DEMO = (function () {
     portefeuille: portefeuille, tarification: tarification, triangle: triangle, forecast: forecast,
     delais: delais, controle: controle, flux: flux,
     retention: retention, relance: relance, mouvements: mouvements,
-    auSeuil: auSeuil, courbePR: courbePR, adoption: adoption
+    auSeuil: auSeuil, courbePR: courbePR, adoption: adoption,
+    segmentation: segmentation, coutModele: coutModele
   };
 })();

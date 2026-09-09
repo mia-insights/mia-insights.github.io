@@ -1,19 +1,20 @@
 /* Graphiques des pages d'exemples de Mia Insights. Chargée après insights.css.
    Les couleurs de série viennent d'une palette validée pour le daltonisme
-   (ordre fixe, jamais recyclé) : bleu, orange, vert d'eau, jaune. Le teal de la
-   marque Mia ne sert qu'aux échelles de magnitude (une teinte, du clair au foncé).
+   (ordre fixe, jamais recyclé) : bleu, orange, vert, jaune, tous pris dans le
+   système de design de la marque. Le bleu sert aussi d'échelle de magnitude,
+   en une seule teinte du plus clair au plus foncé.
    Les textes ne portent jamais la couleur d'une série : ils restent en encre. */
 
 :root{
   --vz-surface:#ffffff;
-  --vz-ink:#16212e; --vz-ink2:#52514e; --vz-muted:#898781;
-  --vz-grid:#e6e9ee; --vz-axis:#c9cfd6;
-  --vz-s1:#2a78d6; --vz-s2:#eb6834; --vz-s3:#1baf7a; --vz-s4:#eda100;
-  --vz-gray:#c9d1d9;                 /* série de contexte, mise en retrait */
-  --vz-pos:#2a78d6; --vz-neg:#e34948; --vz-mid:#eeedea;   /* divergent */
-  --vz-good:#0ca30c; --vz-warn:#fab219; --vz-serious:#ec835a; --vz-critical:#d03b3b;
-  --vz-seq-0:#e3f1f2; --vz-seq-1:#b6dadd; --vz-seq-2:#7fbdc3; --vz-seq-3:#3f9aa2;
-  --vz-seq-4:#0E7C86; --vz-seq-5:#0a5c64; --vz-seq-6:#07434a;
+  --vz-ink:#223140; --vz-ink2:#67768E; --vz-muted:#8B97AB;
+  --vz-grid:#EAEEF6; --vz-axis:#C4CEDE;
+  --vz-s1:#3979B4; --vz-s2:#E05434; --vz-s3:#00A88C; --vz-s4:#D8A600;
+  --vz-gray:#C4CEDE;                 /* série de contexte, mise en retrait */
+  --vz-pos:#004C92; --vz-neg:#D14449; --vz-mid:#EAEEF6;   /* divergent */
+  --vz-good:#00A88C; --vz-warn:#FF9E00; --vz-serious:#E97D5B; --vz-critical:#D14449;
+  --vz-seq-0:#EAF1F9; --vz-seq-1:#CFE0F0; --vz-seq-2:#A8C4E2; --vz-seq-3:#7FA8D0;
+  --vz-seq-4:#4E86BC; --vz-seq-5:#235F9E; --vz-seq-6:#033767;
 }
 
 /* ---------- Bandeau « données fictives » ---------- */
@@ -61,7 +62,7 @@
 .vz .vz-title{ font-size:.86rem; font-weight:800; color:var(--mi-navy); margin:0 0 .15rem; }
 .vz .vz-sub{ font-size:.8rem; color:var(--vz-ink2); margin:0 0 .5rem; line-height:1.4; }
 .vz-plot{ overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; margin:0 -.2rem; padding:0 .2rem; }
-.vz svg{ display:block; width:100%; min-width:700px; height:auto; font-family:'Segoe UI',Arial,Helvetica,sans-serif; }
+.vz svg{ display:block; width:100%; min-width:700px; height:auto; font-family:Barlow,'Segoe UI',Arial,Helvetica,sans-serif; }
 .vz-ctl-slot:empty, .vz-kpi-slot:empty, .vz-legend:empty{ display:none; }
 .vz text{ fill:var(--vz-ink2); font-size:10px; }
 .vz .axis text{ fill:var(--vz-muted); font-size:9.6px; }
