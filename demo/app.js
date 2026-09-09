@@ -860,7 +860,7 @@
         + 'from sklearn.inspection import permutation_importance\n\n'
         + 'modele = HistGradientBoostingRegressor(loss="gamma", max_depth=4,\n'
         + '                                       learning_rate=.05, max_iter=600)\n\n'
-        + '# la validation croisée groupe par assuré : deux contrats d'un même ménage\n'
+        + '# la validation croisée groupe par assuré : deux contrats du même ménage\n'
         + '# ne peuvent pas se retrouver de part et d\'autre de la coupure\n'
         + 'pred = cross_val_predict(modele, X, y, cv=GroupKFold(5), groups=assure_id)\n\n'
         + 'imp = permutation_importance(modele.fit(X, y), X, y, n_repeats=20)\n'
