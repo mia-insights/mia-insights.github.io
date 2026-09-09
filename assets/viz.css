@@ -7,7 +7,7 @@
 
 :root{
   --vz-surface:#ffffff;
-  --vz-ink:#223140; --vz-ink2:#67768E; --vz-muted:#8B97AB;
+  --vz-ink:#223140; --vz-ink2:#67768E; --vz-muted:#67768E;
   --vz-grid:#EAEEF6; --vz-axis:#C4CEDE;
   --vz-s1:#3979B4; --vz-s2:#E05434; --vz-s3:#00A88C; --vz-s4:#D8A600;
   --vz-gray:#C4CEDE;                 /* série de contexte, mise en retrait */
@@ -78,7 +78,7 @@
 .vz .mark.on{ opacity:.82; }
 .vz .mark.dim{ opacity:.55; }
 .vz .xline{ stroke:var(--vz-axis); stroke-width:1; }
-.vz .caption{ font-size:.8rem; color:#8b97a6; font-style:italic; line-height:1.5; margin:.5rem 0 0; }
+.vz .caption{ font-size:.8rem; color:#626F85; font-style:italic; line-height:1.5; margin:.5rem 0 0; }
 
 /* Légende : rectangle pour les barres et aires, trait pour les courbes */
 .vz-legend{ display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin:.1rem 0 .55rem; font-size:.82rem; color:var(--vz-ink2); }
@@ -156,7 +156,7 @@
 .vz-matrix td:first-child small{ display:block; font-weight:600; color:var(--vz-ink2); font-size:.78rem; }
 .vz-matrix a{ display:block; text-decoration:none; color:var(--mi-ink); border-radius:8px; padding:.35rem .5rem; margin:-.35rem -.5rem; line-height:1.4; }
 .vz-matrix a:hover{ background:var(--mi-accent-soft); color:var(--mi-navy); }
-.vz-matrix td.na{ color:#a7b1bc; font-style:italic; }
+.vz-matrix td.na{ color:#626F85; font-style:italic; }
 
 /* ---------- Paliers du hub ---------- */
 .vz-paliers{ display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; margin:1.1rem 0; }

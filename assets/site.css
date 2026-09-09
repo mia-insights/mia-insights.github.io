@@ -8,7 +8,7 @@
    propre conteneur, il n'élargit pas la colonne. */
 
 :root{
-  --navy:#01213C; --ink:#223140; --soft:#67768E; --muted:#8B97AB;
+  --navy:#01213C; --ink:#223140; --soft:#67768E; --muted:#67768E;
   --line:#EAEEF6; --bg:#F8F9FC; --card:#fff;
   --accent:#004C92; --accent-soft:#F0F5FA; --accent-dark:#033767;
   --amber:#D18B00; --amber-soft:#FEECD7;
@@ -63,7 +63,7 @@ main{ max-width:980px; margin:0 auto; padding:1.8rem 1.5rem 4.5rem; }
 .navlinks a .n{ color:var(--muted); font-weight:800; font-size:.78rem; margin-right:.3rem; }
 .navlinks a:hover{ background:var(--bg); color:var(--navy); }
 .navlinks a.active{ background:var(--navy); color:#fff; }
-.navlinks a.active .n{ color:#9FBEDB; }
+.navlinks a.active .n{ color:#CFE0F0; }
 .navlinks a.cta{ background:var(--accent); color:#fff; }
 .navlinks a.cta:hover{ background:var(--accent-dark); color:#fff; }
 .hamb{ display:none; margin-left:auto; border:1px solid var(--line); background:#fff; border-radius:9px; padding:.35rem .5rem; cursor:pointer; }

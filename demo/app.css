@@ -47,12 +47,12 @@ button{ font:inherit; }
   color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.1);
 }
 .side .brand b{ font-size:1.02rem; font-weight:800; letter-spacing:-.01em; display:block; line-height:1.15; }
-.side .brand span{ font-size:.72rem; color:#8FAFD0; font-weight:600; }
+.side .brand span{ font-size:.72rem; color:#B7CDE6; font-weight:600; }
 .side nav{ padding:.75rem .6rem; flex:1 1 auto; overflow-y:auto; }
 .side .grp{
   display:flex; align-items:center; gap:.4rem;
   font-size:.63rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
-  color:#7F9FC4; padding:.9rem .55rem .35rem;
+  color:#B7CDE6; padding:.9rem .55rem .35rem;
 }
 .side .grp .cpt{
   margin-left:auto; background:rgba(255,255,255,.12); border-radius:100px;
@@ -60,16 +60,16 @@ button{ font:inherit; }
 }
 .side nav a{
   display:flex; align-items:center; gap:.6rem; padding:.48rem .55rem; margin:.1rem 0;
-  border-radius:9px; color:#BCD1E8; text-decoration:none; font-size:.89rem; font-weight:600;
+  border-radius:9px; color:#C8DAEE; text-decoration:none; font-size:.89rem; font-weight:600;
 }
 .side nav a svg{ width:16px; height:16px; flex:0 0 auto; opacity:.85; }
 .side nav a:hover{ background:rgba(255,255,255,.08); color:#fff; }
 .side nav a.on{ background:var(--mi-accent); color:#fff; }
 .side nav a.on svg{ opacity:1; }
-.side nav .vide{ padding:.35rem .55rem; font-size:.8rem; color:#7F9FC4; line-height:1.5; }
+.side nav .vide{ padding:.35rem .55rem; font-size:.8rem; color:#B7CDE6; line-height:1.5; }
 .side .foot{
   padding:.85rem 1.1rem 1.05rem; border-top:1px solid rgba(255,255,255,.1);
-  font-size:.73rem; color:#7F9FC4; line-height:1.5;
+  font-size:.73rem; color:#B7CDE6; line-height:1.5;
 }
 .side .foot p{ margin:.7rem 0 0; }
 .side .foot b{ color:#CFE0F0; display:block; font-size:.77rem; }
@@ -158,10 +158,10 @@ button{ font:inherit; }
   background:linear-gradient(120deg,#01213C,#004C92); color:#fff;
   border-radius:16px; padding:1rem 1.25rem; margin:0 0 .85rem;
 }
-.hero .l{ width:100%; font-size:.71rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9FBEDB; }
+.hero .l{ width:100%; font-size:.71rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#CFE0F0; }
 .hero .v{ font-size:2.5rem; font-weight:700; line-height:1; letter-spacing:-.02em; }
 .hero .d{ font-size:.9rem; font-weight:700; color:#BEDAF4; }
-.hero .n{ font-size:.83rem; color:#9FBEDB; margin-left:auto; flex:1 1 20rem; line-height:1.45; }
+.hero .n{ font-size:.83rem; color:#CFE0F0; margin-left:auto; flex:1 1 20rem; line-height:1.45; }
 
 .kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:.65rem; margin:0 0 .9rem; }
 .kpi{ background:#fff; border:1px solid var(--mi-line); border-radius:13px; padding:.72rem .9rem; }
@@ -201,7 +201,7 @@ button{ font:inherit; }
 .tbl tbody tr:hover{ background:#F8FAFD; }
 .dot{ display:inline-flex; align-items:center; gap:.45rem; white-space:nowrap; font-weight:700; font-size:.79rem; }
 .dot::before{ content:""; width:7px; height:7px; border-radius:50%; background:currentColor; }
-.dot.ok{ color:#008670; } .dot.wait{ color:#D18B00; } .dot.stop{ color:#D14449; }
+.dot.ok{ color:#006353; } .dot.wait{ color:#975F09; } .dot.stop{ color:#A32C30; }
 
 /* ==================================================== la colonne de Mia */
 .mia{
@@ -314,9 +314,9 @@ details.code pre{
   padding:.65rem .75rem; overflow-x:auto; font-family:Consolas,"Courier New",monospace;
   font-size:.74rem; line-height:1.5;
 }
-details.code pre .k{ color:#7FC7B8; }
+details.code pre .k{ color:#93D4C6; }
 details.code pre .s{ color:#F0B87E; }
-details.code pre .c{ color:#7F9FC4; font-style:italic; }
+details.code pre .c{ color:#B7CDE6; font-style:italic; }
 
 /* Un changement applique par Mia, resume dans la conversation. */
 .fait{
