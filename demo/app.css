@@ -68,8 +68,18 @@ button{ font:inherit; }
   padding:.85rem 1.1rem 1.05rem; border-top:1px solid rgba(255,255,255,.1);
   font-size:.73rem; color:#7F9FC4; line-height:1.5;
 }
+.side .foot p{ margin:.7rem 0 0; }
 .side .foot b{ color:#CFE0F0; display:block; font-size:.77rem; }
-.side .foot a{ color:#9FC4E8; }
+/* Le retour au site est un bouton, pas un lien perdu dans un paragraphe :
+   c'est la seule sortie de l'application. */
+.side .foot .retour{
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%; padding:.52rem .8rem; border-radius:10px;
+  border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.08);
+  color:#DCE9F7; text-decoration:none; font-size:.85rem; font-weight:700;
+}
+.side .foot .retour:hover{ background:rgba(255,255,255,.16); color:#fff; border-color:rgba(255,255,255,.4); }
+.side .foot .retour svg{ width:15px; height:15px; flex:0 0 auto; }
 
 /* ========================================================= zone centrale */
 .main{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column; }
